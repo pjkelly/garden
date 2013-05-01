@@ -28,7 +28,7 @@ gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-boots
 gem 'blankslate'
 gem 'stamp'
 gem 'configatron'
-gem 'table_helper', :git => 'git://github.com/crushlovely/table_helper.git'
+gem 'crushlovely_table_helper', :require => 'table_helper'
 gem 'figaro'
 
 # Gems used only for assets and not required

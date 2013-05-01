@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/crushlovely/table_helper.git
-  revision: 4b2fac9e8733c7ae97b519cdf46e878d38593477
-  specs:
-    table_helper (0.2.2)
-
-GIT
   remote: git://github.com/evansagge/mongoid-rspec.git
   revision: c6e4ca867788fcb4678e46dec64961e8835780e4
   ref: c6e4ca867788fcb4678e46dec64961e8835780e4
@@ -92,6 +86,9 @@ GEM
       sass (~> 3.1)
     configatron (2.9.0)
       yamler (>= 0.1.0)
+    crushlovely_table_helper (0.3.0)
+      blankslate
+      builder
     daemons (1.1.6)
     database_cleaner (0.7.1)
     delorean (1.2.0)
@@ -280,6 +277,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass (~> 0.11.0)
   configatron
+  crushlovely_table_helper
   database_cleaner
   delorean
   devise
@@ -310,7 +308,6 @@ DEPENDENCIES
   simplecov
   stamp
   steak
-  table_helper!
   thin
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
