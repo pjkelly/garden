@@ -1,0 +1,25 @@
+<ul class="breadcrumb">
+  <li class="active">
+    <strong><%= plural_resource %></strong>
+  </li>
+</ul>
+
+<% if admin_signed_in? %>
+<div class="btn-group">
+  <%= link_to(raw("New #{singular_resource} &raquo;"), new_resource_path, :class => 'btn primary') %>
+</div>
+<% end %>
+
+<%=
+  collection_table(collection, :class => 'table table-striped') do |t|
+    t.header :color
+    t.header :name
+    t.header :catalog_number
+
+    t.rows.each do |row, item, index|
+      row.color "", :style => "background-color: #{item.category.try(:color)}"
+      row.name link_to(item.name, seed_path(item))
+      row.catalog_number item.catalog_number
+    end
+  end
+%>

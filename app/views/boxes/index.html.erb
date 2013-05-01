@@ -1,0 +1,23 @@
+<ul class="breadcrumb">
+  <li class="active">
+    <strong>Boxes</strong>
+  </li>
+</ul>
+
+<div class="alert alert-info">
+  Green squares have something planted in them.
+</div>
+
+<%=
+  collection_table(collection.to_a.chunk(3), :class => 'table table-condensed boxes-table') do |t|
+    t.header :col1, ""
+    t.header :col2, ""
+    t.header :col3, ""
+
+    t.rows.each do |row, item, index|
+      row.col1 link_to_box(item[0])
+      row.col2 link_to_box(item[1])
+      row.col3 link_to_box(item[2])
+    end
+  end
+%>

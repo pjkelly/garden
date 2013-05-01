@@ -1,0 +1,37 @@
+<%= heading("Box #{@square.box.number}, Square #{@square.number} Planting") %>
+
+<div class="btn-group push">
+  <%= link_to(box_squares_path(@square.box), :class => 'btn') do %>
+    <i class="icon-chevron-left"></i>
+    Go back
+  <% end %>
+
+  <%= link_to(edit_resource_path(resource), :class => 'btn btn-primary') do %>
+    <i class="icon-pencil icon-white"></i>
+    Edit
+  <% end %>
+
+  <%= link_to(resource_path(resource), :method => :delete, :class => 'btn btn-danger btn-destroy') do %>
+    <i class="icon-trash icon-white"></i>
+    Destroy
+  <% end %>
+</div>
+
+<br>
+
+<div class="well">
+  <dl>
+    <dt>Seed</dt>
+    <dd><%= resource.seed.name %></dd>
+    <dt>Planted On</dt>
+    <dd><%= resource.planted_on %></dd>
+    <dt>Configuration</dt>
+    <dd><%= resource.configuration %></dd>
+    <dt>Initial Harvest On</dt>
+    <dd><%= resource.initial_harvest_on %></dd>
+    <dt>Completed On</dt>
+    <dd><%= resource.completed_on %></dd>
+    <dt>Notes</dt>
+    <dd><%= resource.notes %></dd>
+  </dl>
+</div>

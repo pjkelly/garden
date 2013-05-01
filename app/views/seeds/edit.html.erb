@@ -1,0 +1,19 @@
+<ul class="breadcrumb">
+  <li>
+    <%= link_to('Seeds', seeds_path) %> <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to(resource.name, seed_path(resource)) %> <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <strong>Edit</strong>
+  </li>
+</ul>
+
+<%= simple_form_for resource, :url => resource_path(resource), :html => { :multipart => true } do |form| %>
+  <%= render :partial => 'form', :locals => { :form => form } %>
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Save changes</button>
+    <%= link_to("Cancel", seed_path(resource), :class => 'btn') %>
+  </div>
+<% end %>

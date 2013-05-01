@@ -1,0 +1,3 @@
+<%= form_for(object, :url => path, :html => { :method => :put, :class => "#{dom_class(object, 'toggle_visibility')} toggle_visibility", :id => dom_id(object, 'toggle_visibility') }) do |p| %>
+  <%= toggle_visibility_submit(object) %>
+<% end %>

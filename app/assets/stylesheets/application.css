@@ -1,0 +1,40 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require bootstrap
+ *= require jquery_ui/jquery-ui.smoothness
+ *= require jquery.miniColors
+ *= require_self
+*/
+
+tbody tr td {
+  vertical-align: middle;
+}
+
+tr td a.btn {
+  display: block;
+  vertical-align: middle;
+}
+
+.logged-in-as {
+  color: #ccc;
+  padding-right: 20px;
+}
+
+iframe {
+  width: 920px;
+  height: 320px;
+  border: 1px solid #ccc;
+  overflow: auto;
+}
+
+.push {
+  margin-bottom: 1em;
+}
+
+footer {
+  margin-top: 1em;
+  border-top: 1px solid #ccc;
+  padding-top: 1em;
+}

@@ -1,0 +1,19 @@
+<ul class="breadcrumb">
+  <li>
+    <%= link_to('Boxes', boxes_path) %> <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to("Box #{@square.box.number}", box_squares_path(@square.box)) %> <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <strong>Square <%= @square.number %>: New Planting</strong>
+  </li>
+</ul>
+
+<%= simple_form_for resource, :url => collection_path, :html => { :multipart => true } do |form| %>
+  <%= render :partial => 'form', :locals => { :form => form } %>
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <%= link_to("Cancel", box_squares_path(@square.box), :class => 'btn') %>
+  </div>
+<% end %>

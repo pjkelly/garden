@@ -1,0 +1,32 @@
+<ul class="breadcrumb">
+  <li>
+    <%%= link_to(plural_resource, collection_path) %> <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <strong><%%= resource %></strong>
+  </li>
+</ul>
+
+<table class="table table-striped table-bordered table-condensed">
+  <tbody>
+    <%- @model_attributes.each do |attribute| -%>
+    <tr>
+      <th><%= attribute.name.titleize %></th>
+      <td><%%= resource.<%= attribute.name %> %></td>
+    </tr>
+    <%- end -%>
+  </tbody>
+</table>
+
+<%% if admin_signed_in? %>
+<div class="btn-group">
+  <%%= link_to(edit_resource_path(resource), :class => 'btn btn-primary') do %>
+    <i class="icon-pencil icon-white"></i>
+    Edit
+  <%% end %>
+  <%%= link_to(resource_path(resource), :method => :delete, :class => 'btn btn-danger btn-destroy') do %>
+    <i class="icon-trash icon-white"></i>
+    Destroy
+  <%% end %>
+</div>
+<%% end %>

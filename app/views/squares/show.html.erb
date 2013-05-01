@@ -1,0 +1,49 @@
+<ul class="breadcrumb">
+  <li>
+    <%= link_to('Boxes', boxes_path) %> <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to("Box #{@box.number}", box_squares_path(@box)) %> <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <strong>Square <%= resource.number %></strong>
+  </li>
+</ul>
+
+  <table class="table table-striped table-bordered table-condensed">
+    <tbody>
+      <tr>
+        <th>Currently Planted</th>
+        <td><%= @planting.name %></td>
+      </tr>
+      <tr>
+        <th>Planted On</th>
+        <td><%= @planting.planted_on.stamp(configatron.date_formats.long) %></td>
+      </tr>
+      <tr>
+        <th>Configuration</th>
+        <td><%= @planting.configuration %></td>
+      </tr>
+      <tr>
+        <th>Initial Harvest On</th>
+        <td><%= @planting.initial_harvest_on %></td>
+      </tr>
+      <tr>
+        <th>Completed On</th>
+        <td><%= @planting.completed_on %></td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td><%= @planting.notes %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <% if admin_signed_in? %>
+  <div class="btn-group">
+    <%= link_to(edit_square_planting_path(resource, @planting), :class => 'btn btn-primary') do %>
+      <i class="icon-pencil icon-white"></i>
+      Edit
+    <% end %>
+  </div>
+  <% end %>

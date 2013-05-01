@@ -1,0 +1,17 @@
+<% if resource.new_record? %>
+  <%= form.input :permalink, :hint => 'This field is not editable once a record is created for SEO reasons.  Please be sure it is what you want before saving.' %>
+<% else %>
+  <li>
+    <label>Permalink</label>
+    <input type="text" readonly="readonly" size="50" value="<%= resource.permalink %>" />
+    <p class="inline-hints">This field is not editable for SEO reasons.  If you need to change this, please contact your administrator so the appropriate redirects can be setup.</p>
+  </li>
+<% end %>
+
+<% content_for(:head) do %>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+      $('#<%= object_name %>_permalink').slugify('#<%= object_name %>_<%= attribute %>');
+    });
+  </script>
+<% end %>

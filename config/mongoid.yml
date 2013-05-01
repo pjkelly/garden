@@ -1,0 +1,14 @@
+development: &global_settings
+  database: garden-development
+  autocreate_indexes: true
+  persist_in_safe_mode: true
+  host: localhost
+
+test: &test
+  <<: *global_settings
+  database: garden-test
+
+production:
+  autocreate_indexes: false
+  persist_in_safe_mode: false
+  uri: <%= ENV['MONGOHQ_URL'] %>

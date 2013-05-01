@@ -1,0 +1,29 @@
+<%= heading("#{singular_resource}") %>
+
+<div class="btn-group push">
+  <%= link_to(collection_path, :class => 'btn') do %>
+    <i class="icon-chevron-left"></i>
+    Go back
+  <% end %>
+
+  <%= link_to(edit_resource_path(resource), :class => 'btn btn-primary') do %>
+    <i class="icon-pencil icon-white"></i>
+    Edit
+  <% end %>
+
+  <%= link_to(resource_path(resource), :method => :delete, :class => 'btn btn-danger btn-destroy') do %>
+    <i class="icon-trash icon-white"></i>
+    Destroy
+  <% end %>
+</div>
+
+<br>
+
+<div class="well">
+  <dl>
+    <dt>Number</dt>
+    <dd><%= resource.number %></dd>
+    <dt>Notes</dt>
+    <dd><%= resource.notes %></dd>
+  </dl>
+</div>

@@ -1,0 +1,10 @@
+<%= form.input :seed_id, :as => :select, :collection => Seed.all.collect { |s| [s.name, s._id]} %>
+<p><strong>or</strong></p>
+<%= form.input :transplant %>
+<%= form.input :planted_on, :hint => "Format: YYYY-MM-DD", :input_html => { :type => "date" } %>
+<%= form.input :configuration, :as => :select, :collection => Planting::CONFIGURATIONS %>
+<% unless resource.new_record? %>
+  <%= form.input :initial_harvest_on, :input_html => { :type => "date" } %>
+  <%= form.input :completed_on, :input_html => { :type => "date" } %>
+  <%= form.input :notes %>
+<% end %>

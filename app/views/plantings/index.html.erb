@@ -1,0 +1,23 @@
+<ul class="breadcrumb">
+  <li class="active">
+    <strong>Planting By Date</strong>
+  </li>
+</ul>
+
+<% collection.group_by(&:planted_on).each do |date, plantings| %>
+  <h4><%= date.stamp(configatron.date_formats.long) %></h4>
+  <%=
+    collection_table(plantings.sort_by { |p| p.location }, :class => 'table table-striped') do |t|
+      t.header :plant
+      t.header :location
+      t.header :catalog_number
+
+      t.rows.each do |row, item, index|
+        row.plant item.transplant? ? item.name : link_to(item.name, seed_path(item.seed))
+        row.location link_to(item.location, box_square_path(item.square.box, item.square))
+        row.catalog_number item.transplant? ? "n/a" : item.seed.catalog_number
+      end
+    end
+  %>
+<% end %>
+

@@ -1,0 +1,28 @@
+<ul class="breadcrumb">
+  <li>
+    <%= link_to('Boxes', boxes_path) %> <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <strong>Box <%= @box.number %></strong>
+  </li>
+</ul>
+
+<div class="alert alert-info">
+  Green squares have something planted in them.
+</div>
+
+<%=
+  collection_table(collection.to_a.chunk(4), :class => 'table table-condensed squares-table') do |t|
+    t.header :col1, ""
+    t.header :col2, ""
+    t.header :col3, ""
+    t.header :col4, ""
+
+    t.rows.each do |row, item, index|
+      row.col1 link_to_square(item[0])
+      row.col2 link_to_square(item[1])
+      row.col3 link_to_square(item[2])
+      row.col4 link_to_square(item[3])
+    end
+  end
+%>

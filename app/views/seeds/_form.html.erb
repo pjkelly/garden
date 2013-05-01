@@ -1,0 +1,8 @@
+<%= form.input :name %>
+<% if resource.new_record? %>
+  <%= form.input :catalog_number, :input_html => { :value => Seed.next_catalog_number, :disabled => :disabled } %>
+<% else %>
+  <%= form.input :catalog_number, :input_html => { :disabled => :disabled } %>
+<% end %>
+<%= form.input :category_id, :as => :select, :collection => Category.all %>
+<%= form.input :seed_source_id, :as => :select, :collection => SeedSource.all %>

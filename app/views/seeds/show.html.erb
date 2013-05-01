@@ -1,0 +1,51 @@
+<ul class="breadcrumb">
+  <li>
+    <%= link_to('Seeds', seeds_path) %> <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <strong><%= resource.name %></strong>
+  </li>
+</ul>
+
+  <table class="table table-striped table-bordered table-condensed">
+    <tbody>
+      <tr>
+        <th>Name</th>
+        <td><%= resource.name %></td>
+      </tr>
+      <tr>
+        <th>Category</th>
+        <td class="category-cell" style="color: #fff; background-color: <%= resource.category.try(:color) %>">
+          <%= resource.category %>
+        </td>
+      </tr>
+      <tr>
+        <th>Catalog Number</th>
+        <td><%= resource.catalog_number %></td>
+      </tr>
+      <tr>
+        <th style="vertical-align: top;"><%= pluralize(resource.plantings.length, 'Planting') %></th>
+        <td>
+          <ul>
+            <% resource.plantings.each do |planting| %>
+            <li><%= planting.planted_on.stamp(configatron.date_formats.long) %></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <% if admin_signed_in? %>
+  <div class="btn-group">
+    <%= link_to(edit_seed_path(resource), :class => 'btn btn-primary') do %>
+      <i class="icon-pencil icon-white"></i>
+      Edit
+    <% end %>
+    <%= link_to(seed_path(resource), :method => :delete, :class => 'btn btn-danger btn-destroy') do %>
+      <i class="icon-trash icon-white"></i>
+      Destroy
+    <% end %>
+  </div>
+  <% end %>
+

@@ -1,0 +1,40 @@
+<ul class="breadcrumb">
+  <li>
+    <%= link_to(plural_resource, collection_path) %> <span class="divider">/</span>
+  </li>
+  <li class="active">
+    <strong><%= resource %></strong>
+  </li>
+</ul>
+
+<table class="table table-striped table-bordered table-condensed">
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <td><%= resource.name %></td>
+    </tr>
+    <tr>
+      <th>Color</th>
+      <td style="background-color: <%= resource.color %>"></td>
+    </tr>
+  </tbody>
+</table>
+
+<% if admin_signed_in? %>
+<div class="btn-group">
+  <!--
+  <%= link_to(category_sub_categories_path(resource), :class => 'btn btn-info') do %>
+    <i class="icon-th-list icon-white"></i>
+    Sub-Categories
+  <% end %>
+  -->
+  <%= link_to(edit_resource_path(resource), :class => 'btn btn-primary') do %>
+    <i class="icon-pencil icon-white"></i>
+    Edit
+  <% end %>
+  <%= link_to(resource_path(resource), :method => :delete, :class => 'btn btn-danger btn-destroy') do %>
+    <i class="icon-trash icon-white"></i>
+    Destroy
+  <% end %>
+</div>
+<% end %>

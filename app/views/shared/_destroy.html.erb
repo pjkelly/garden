@@ -1,0 +1,3 @@
+<%= form_for(object, :url => path, :html => { :method => :delete, :class => "#{dom_class(object, 'destroy')} destroy", :id => dom_id(object, 'destroy') }) do |p| %>
+  <p><%= button_submit_tag("Destroy") %></p>
+<% end %>
