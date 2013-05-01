@@ -24,8 +24,6 @@ gem 'mongoid_orderable', :git => 'git://github.com/pjkelly/mongoid_orderable.git
 gem 'inherited_resources'
 gem 'redcarpet', '2.0.0b5'
 gem 'mongoid_slug'
-gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
-gem 'blankslate'
 gem 'stamp'
 gem 'configatron'
 gem 'crushlovely_table_helper', :require => 'table_helper'
@@ -34,14 +32,12 @@ gem 'figaro'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer'
-
-  gem 'uglifier', '>= 1.0.3'
-  gem 'compass',      '~> 0.11.0'
+  gem "sass-rails", "~> 3.2.4"
+  gem "coffee-rails", "~> 3.2.2"
+  gem "less-rails", "~> 2.1.5"
+  gem "uglifier", "~> 1.2.3"
+  gem "compass-rails", "~> 1.0.0"
+  gem 'bootstrap-sass'
 end
 
 gem 'jquery-rails'

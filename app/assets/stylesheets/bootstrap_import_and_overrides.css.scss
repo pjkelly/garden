@@ -1,0 +1,34 @@
+@import "bootstrap";
+
+tbody tr td {
+  vertical-align: middle;
+}
+
+tr td a.btn {
+  display: block;
+  vertical-align: middle;
+}
+
+.logged-in-as {
+  color: #ccc;
+  padding-right: 20px;
+}
+
+iframe {
+  width: 920px;
+  height: 320px;
+  border: 1px solid #ccc;
+  overflow: auto;
+}
+
+.push {
+  margin-bottom: 1em;
+}
+
+footer {
+  margin-top: 1em;
+  border-top: 1px solid #ccc;
+  padding-top: 1em;
+}
+
+@import "bootstrap-responsive";
